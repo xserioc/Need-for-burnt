@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Need for Burnt</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="hud" class="panel">
+        <div>Speed: <span id="speed-value">0</span> mph</div>
+        <div>Cash: $<span id="cash-value">22000</span></div>
+        <div>Car: <span id="car-value">Swift GT</span></div>
+      </div>
+
+      <div id="minimap-wrap" class="panel">
+        <div class="map-title">GPS</div>
+        <canvas id="minimap" width="200" height="200" aria-label="mini map"></canvas>
+      </div>
+
+      <div id="menu-buttons" class="panel">
+        <button id="pause-toggle">Pause</button>
+        <button id="garage-toggle">Garage</button>
+        <button id="settings-toggle">Settings</button>
+        <button id="map-toggle">Map</button>
+      </div>
+
+      <div id="pause-menu" class="overlay hidden">
+        <div class="window">
+          <h2>Paused</h2>
+          <button id="resume-btn">Resume</button>
+          <button id="pause-open-settings">Settings</button>
+          <button id="pause-open-garage">Garage</button>
+          <button id="pause-open-map">Map</button>
+          <button id="reset-save-btn">Reset Save</button>
+        </div>
+      </div>
+
+      <div id="settings-menu" class="overlay hidden">
+        <div class="window">
+          <h2>Settings</h2>
+          <label><input type="checkbox" id="low-graphics" /> Low Graphics</label>
+          <label><input type="checkbox" id="shadows-toggle" checked /> Shadows</label>
+          <label>
+            Resolution Scale
+            <select id="resolution-scale">
+              <option value="1">1.0</option>
+              <option value="0.75">0.75</option>
+              <option value="0.5">0.5</option>
+            </select>
+          </label>
+          <button id="close-settings">Close</button>
+        </div>
+      </div>
+
+      <div id="garage-menu" class="overlay hidden">
+        <div class="window garage-window">
+          <aside id="garage-stats" class="garage-panel">
+            <h3 id="garage-car-name">Swift GT</h3>
+            <div class="stat-line"><span>Top Speed</span><div class="bar"><i id="stat-speed"></i></div></div>
+            <div class="stat-line"><span>Accel</span><div class="bar"><i id="stat-accel"></i></div></div>
+            <div class="stat-line"><span>Handling</span><div class="bar"><i id="stat-handling"></i></div></div>
+            <div id="garage-car-price"></div>
+          </aside>
+
+          <section class="garage-main">
+            <h2>Garage</h2>
+            <div id="garage-list"></div>
+            <div class="garage-actions">
+              <button id="close-garage">Back to City</button>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div id="map-menu" class="overlay hidden">
+        <div class="window map-window">
+          <h2>City Map</h2>
+          <canvas id="fullmap" width="760" height="560" aria-label="full city map"></canvas>
+          <div class="map-legend">Blue triangle: You · Yellow: Route to Garage · Cyan square: Garage</div>
+          <button id="close-map">Close</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
